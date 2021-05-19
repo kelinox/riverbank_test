@@ -6,11 +6,6 @@ namespace riverbank
 {
     /**
     Least recently used cache
-        - maximum size is parameter(testing 3)
-        - add element if size is 3 remove the least used
-
-        Linked list 
-        Normal list
     */
 
 
@@ -42,6 +37,8 @@ namespace riverbank
             this.maxSize = maxSize;
         }
 
+        // Retrieve an element from the cache
+        // Add it in the cache if it is not already there
         public T GetElement(T itemToGet)
         {
             var current = Root;
@@ -51,25 +48,18 @@ namespace riverbank
                 current = current.Next;
             }
 
-            if (current is null)
-            {
-                current = Add(itemToGet);
-                SortList(Root);
-                return itemToGet;
-            }
-            else
-            {
-                current.UsedAt = DateTime.UtcNow;
-                SortList(Root);
-                return current.Item;
-            }
+            current = Add(itemToGet);
+            SortList(Root);
+            return itemToGet;
         }
 
+        // Sort the list from the least used to the most recently used
         private void SortList(LeastRecentlyUsedCacheItem<T> root)
         {
             if (root is null || root.Next is null)
                 return;
 
+            // If the current node has been used more recently than the next one we swap them
             if (root.UsedAt > root.Next.UsedAt)
             {
                 var tmp = root.Next;
@@ -85,18 +75,22 @@ namespace riverbank
                 if (previous != null)
                     previous.Next = tmp;
                 else
-                    Root = tmp;
+                    Root = tmp; // We set the new root of the list
 
+                // Sort the list with the current node
                 SortList(root);
             }
             else
             {
+                // Sort from the next node
                 SortList(root.Next);
             }
         }
 
+        // Add an item in the cache
         private LeastRecentlyUsedCacheItem<T> Add(T itemToAdd)
         {
+            // Create the root node
             if (Root is null)
             {
                 Root = new LeastRecentlyUsedCacheItem<T>
@@ -109,9 +103,9 @@ namespace riverbank
 
                 return Root;
             }
-
             else
             {
+                // Remove an item if the list is full
                 RemoveIfNecessary();
 
                 var tmp = Root;
@@ -120,6 +114,7 @@ namespace riverbank
                     tmp = tmp.Next;
                 }
 
+                // We had the new node at the end as it is the most recently used element
                 tmp.Next = new LeastRecentlyUsedCacheItem<T>
                 {
                     Item = itemToAdd,
@@ -132,6 +127,7 @@ namespace riverbank
             }
         }
 
+        // If the size is exceeded we remove the root element as it is the least used element
         private void RemoveIfNecessary()
         {
             if (GetSize() == maxSize)
@@ -142,6 +138,7 @@ namespace riverbank
             }
         }
 
+        // Get the number of element in the cache
         private int GetSize()
         {
             var tmp = Root;
