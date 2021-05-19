@@ -1,0 +1,13 @@
+/home/lucas/Documents/netcore/riverbank/obj/Debug/netcoreapp3.1/riverbank.csprojAssemblyReference.cache
+/home/lucas/Documents/netcore/riverbank/obj/Debug/netcoreapp3.1/riverbank.AssemblyInfoInputs.cache
+/home/lucas/Documents/netcore/riverbank/obj/Debug/netcoreapp3.1/riverbank.AssemblyInfo.cs
+/home/lucas/Documents/netcore/riverbank/obj/Debug/netcoreapp3.1/riverbank.csproj.CoreCompileInputs.cache
+/home/lucas/Documents/netcore/riverbank/bin/Debug/netcoreapp3.1/riverbank
+/home/lucas/Documents/netcore/riverbank/bin/Debug/netcoreapp3.1/riverbank.deps.json
+/home/lucas/Documents/netcore/riverbank/bin/Debug/netcoreapp3.1/riverbank.runtimeconfig.json
+/home/lucas/Documents/netcore/riverbank/bin/Debug/netcoreapp3.1/riverbank.runtimeconfig.dev.json
+/home/lucas/Documents/netcore/riverbank/bin/Debug/netcoreapp3.1/riverbank.dll
+/home/lucas/Documents/netcore/riverbank/bin/Debug/netcoreapp3.1/riverbank.pdb
+/home/lucas/Documents/netcore/riverbank/obj/Debug/netcoreapp3.1/riverbank.dll
+/home/lucas/Documents/netcore/riverbank/obj/Debug/netcoreapp3.1/riverbank.pdb
+/home/lucas/Documents/netcore/riverbank/obj/Debug/netcoreapp3.1/riverbank.genruntimeconfig.cache
